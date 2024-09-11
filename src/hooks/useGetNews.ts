@@ -26,7 +26,9 @@ export default function useGetNews() {
         try {
             setError(null);
             const res = await axios.get(
-                `https://newsapi.org/v2/everything?language=en&q=${newsTheme}&apiKey=fd700ef8c0864fe8bb2661330505574e&pageSize=15`
+                `https://newsapi.org/v2/everything?language=en&q=${newsTheme}&apiKey=${
+                    import.meta.env.VITE_API_KEY
+                }&pageSize=15`
             );
             setNews(res.data.articles);
             setRotationKey((prevKey) => prevKey + 1);
