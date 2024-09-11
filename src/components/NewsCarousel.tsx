@@ -7,24 +7,24 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 import { motion } from 'framer-motion';
 import { RxUpdate } from 'react-icons/rx';
+import FilterButton from './FilterButton';
 
 const NewsCarousel = () => {
     const [news, setNews] = useState([]);
     const [rotationKey, setRotationKey] = useState(0);
+    const [newsTheme, setNewsTheme] = useState([]);
 
     const getNews = async () => {
         try {
             const res = await axios.get(
-                `https://newsapi.org/v2/everything?q=crypto&apiKey=fd700ef8c0864fe8bb2661330505574e&pageSize=10`
+                `https://newsapi.org/v2/everything?language=en&q=ukraine${newsTheme}&apiKey=fd700ef8c0864fe8bb2661330505574e&pageSize=30`
             );
             setNews(res.data.articles);
             setRotationKey((prevKey) => prevKey + 1);
-            console.log(news);
         } catch (error) {
             console.error('Error fetching news:', error);
         }
     };
-    console.log(filter);
 
     useEffect(() => {
         if (news.length === 0) {
@@ -84,7 +84,8 @@ const NewsCarousel = () => {
                     </motion.div>
                 </div>
             )}
-            {/*
+
+            <FilterButton setNewsTheme={setNewsTheme} newsTheme={newsTheme} />
             <button
                 type='button'
                 className='mt-6 border-2 py-3 px-8 rounded-lg hover:bg-white hover:text-black disabled:opacity-50 disabled:text-gray-400 disabled:hover:bg-black'
@@ -101,7 +102,7 @@ const NewsCarousel = () => {
                         <RxUpdate />
                     </motion.div>
                 </div>
-            </button> */}
+            </button>
         </div>
     );
 };
