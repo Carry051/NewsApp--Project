@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion';
 import { FC } from 'react';
+
+import { motion } from 'framer-motion';
+
 import { RxUpdate } from 'react-icons/rx';
 
 type ButtonComponentProps = {

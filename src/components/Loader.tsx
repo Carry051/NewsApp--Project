@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion';
 import { FC } from 'react';
+
+import { motion } from 'framer-motion';
+
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 type LoaderProps = {

@@ -1,10 +1,10 @@
-import Carousel from 'react-bootstrap/Carousel';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import FilterButton from './components/FilterButton';
 import ButtonComponent from './components/ButtonComponent';
 import Loader from './components/Loader';
 import useGetNews from './hooks/useGetNews';
+
+import Carousel from 'react-bootstrap/Carousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NewsCarousel = () => {
     const { news, rotationKey, newsTheme, setNewsTheme, error, getNews } =
