@@ -1,4 +1,4 @@
-import NewsCarousel from './components/NewsCarousel';
+import NewsCarousel from './NewsCarousel';
 
 export default function App() {
     return (
